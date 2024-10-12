@@ -1,8 +1,13 @@
-import { SignedIn, SignOutButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignOutButton,
+  UserButton,
+} from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
 async function Navbar() {
   return (
     <nav className="bg-zinc-900 text-white sm:py-6 sm:px-8 px-10 py-6">
@@ -15,18 +20,11 @@ async function Navbar() {
 
         <div className="flex items-center space-x-4">
           <SignedIn>
-            <SignOutButton>
-              <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity duration-300">
-                <Image
-                  src="/assets/logout.svg"
-                  alt="logout"
-                  height={24}
-                  width={24}
-                />
-                <span>Logout</span>
-              </div>
-            </SignOutButton>
-          </SignedIn>
+            <UserButton />
+          </SignedIn>          
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
         </div>
       </div>
     </nav>

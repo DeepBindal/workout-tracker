@@ -26,15 +26,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
+    <html lang="en">
+      <ClerkProvider>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-200 custom-scrollbar`}
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"      
-          >
+          <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar />
             <main className="flex flex-row">
               <Sidebar />
@@ -46,7 +43,7 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
           <Toaster position="bottom-right" />
         </body>
-      </html>
-    </ClerkProvider>
+      </ClerkProvider>
+    </html>
   );
 }

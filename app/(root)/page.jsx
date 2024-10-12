@@ -4,7 +4,6 @@ import Link from "next/link";
 
 async function page() {
   const user = await currentUser();
-  if (!user) return null;
 
   return (
     <div className="bg-zinc-900 text-white">
