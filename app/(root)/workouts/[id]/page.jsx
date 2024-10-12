@@ -1,9 +1,11 @@
+import { Button } from "@/components/ui/button";
 import WorkoutCard from "@/components/WorkoutCard.jsx";
 import { fetchUser } from "@/lib/actions/user.actions.js";
 import { fetchUserWorkouts } from "@/lib/actions/workout.actions.js";
 import { currentUser } from "@clerk/nextjs/server";
-import { Link } from "lucide-react";
 import { redirect } from "next/navigation";
+import { buttonVariants } from "@/components/ui/button"
+import Link from "next/link";
 
 const page = async ({ params }) => {
   const user = await currentUser();
@@ -35,12 +37,9 @@ const page = async ({ params }) => {
           <p className="text-gray-400 mb-6">
             Start by adding your first workout to track your progress.
           </p>
-          <Link
-            href="/add-workout"
-            className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition-colors"
-          >
-            Add First Workout
-          </Link>
+          <Button asChild>
+            <Link href="/add-workout">Add First Workout</Link>
+          </Button>
         </div>
       )}
     </div>

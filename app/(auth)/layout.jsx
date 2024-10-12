@@ -16,6 +16,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 // });
 
 import "../globals.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Auth",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
           <div className="w-full flex justify-center items-center min-h-screen">
           {children}
           </div>
+          <Toaster position="bottom-right"/>
           </body>
       </html>
     </ClerkProvider>

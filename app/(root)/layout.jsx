@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-200`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-200 custom-scrollbar`}
         >
           <ThemeProvider
             attribute="class"
@@ -43,8 +43,8 @@ export default function RootLayout({ children }) {
               </section>
             </main>
             <Bottombar />
-            <Toaster position="bottom-right" />
           </ThemeProvider>
+          <Toaster position="bottom-right" />
         </body>
       </html>
     </ClerkProvider>

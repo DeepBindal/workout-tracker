@@ -10,6 +10,7 @@ import { Textarea } from './ui/textarea';
 import { Input } from './ui/input';
 import { onboardUser } from '@/lib/actions/user.actions';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 function OnboardForm({ user }) {
   const router = useRouter();
@@ -23,9 +24,17 @@ function OnboardForm({ user }) {
   });
 
   const onSubmit = async (data) => {
-    console.log('Form submitted:', data);
-    await onboardUser({name: data.name, username: data.username, bio: data.bio, id: user.id})
-    router.push("/")
+    try {
+      const response = await onboardUser({name: data.name, username: data.username, bio: data.bio, id: user.id})
+      if(response.message == "User already exists. Use different username."){
+        throw new Error(response.message);
+      }
+      router.push("/")
+      toast.success("Welcome!")
+    } catch (error) {
+      toast.error("User already exists use a different username.")
+      console.log(error) ;
+    }
   };
 
   return (

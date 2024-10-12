@@ -14,7 +14,7 @@ const page = async () => {
   const userInfo = await fetchUser(user.id);
 
   if (!userInfo?.onboarded) {
-    redirect('/'); // Redirect to homepage if the user is already onboarded
+    redirect('/onboarding'); // Redirect to homepage if the user is already onboarded
   }
   return (
     <>

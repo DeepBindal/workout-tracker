@@ -47,7 +47,7 @@ function AiAssist() {
 
       // Save the response in state and localStorage
       setResponse(Response);
-      localStorage.setItem("aiResponse", finalResponse);
+      localStorage.setItem("aiResponse", Response);
 
       setLoading(false);
     } catch (error) {
