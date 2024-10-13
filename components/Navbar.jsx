@@ -8,22 +8,31 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Button } from "./ui/button";
+import MobileNav from "./MobileNav";
+
 async function Navbar() {
   return (
-    <nav className="bg-zinc-900 text-white sm:py-6 sm:px-8 px-10 py-6">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="bg-zinc-900 text-white py-4 sm:py-6 sm:px-8 px-6 shadow-lg">
+      <div className="container mx-auto max-w-7xl flex items-center justify-between">
         {/* Logo / Brand Name */}
-        <Link className="flex gap-2  items-center" href="/">
+        <Link className="flex gap-3 items-center hover:opacity-80 transition-opacity duration-200" href="/">
           <Image src="/assets/workout.svg" alt="logo" height={30} width={30} />
-          <h1 className="font-bold text-xl sm:text-2xl">Workout Tracker</h1>
+          <h1 className="font-bold text-lg sm:text-2xl tracking-wide">
+            ProgressPulse
+          </h1>
         </Link>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-6">
           <SignedIn>
             <UserButton />
-          </SignedIn>          
+            <MobileNav />
+          </SignedIn>
+          
           <SignedOut>
-            <SignInButton />
+            <Button asChild className="rounded-full bg-blue-600 hover:bg-blue-700 px-6 py-2 text-white text-sm sm:text-base transition-colors duration-200">
+              <Link href="/sign-in">Login</Link>
+            </Button>
           </SignedOut>
         </div>
       </div>

@@ -6,22 +6,22 @@ import Sidebar from "@/components/Sidebar";
 import { Toaster } from "react-hot-toast";
 import Bottombar from "@/components/Bottombar";
 import { ThemeProvider } from "@/components/theme-provider";
+import {Poppins} from "next/font/google"
+import { icons } from "lucide-react";
 
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ['latin'], 
+  weight: ['300', '400', '500', '900'],
 });
 
 export const metadata = {
-  title: "Workout Tracker & Logger",
+  title: "ProgressPulse",
   description:
     "This is workout tracker & logger allowing you to track and log your progress in the gym",
+    icons: {
+      icon: "/assets/workout.svg"
+    }
 };
 
 export default function RootLayout({ children }) {
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ClerkProvider>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-gray-200 custom-scrollbar`}
+          className={`${poppins.variable}  antialiased bg-black text-gray-200 custom-scrollbar`}
         >
           <ThemeProvider attribute="class" defaultTheme="dark">
             <Navbar />
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
                 <div className="w-full max-w-4xl">{children}</div>
               </section>
             </main>
-            <Bottombar />
+            {/* <Bottombar /> */}
           </ThemeProvider>
           <Toaster position="bottom-right" />
         </body>

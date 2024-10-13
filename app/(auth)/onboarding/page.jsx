@@ -20,7 +20,7 @@ async function page() {
   const userData = {
     id: user?.id,
     objectId: userInfo?._id,
-    username: userInfo ? userInfo?.username : `@${user?.firstName}${user?.lastName}`,
+    username: userInfo ? userInfo?.username : `@${user?.username}`,
     name: userInfo ? userInfo?.name : user?.firstName || '',
     bio: userInfo ? userInfo?.bio : '',
   };
