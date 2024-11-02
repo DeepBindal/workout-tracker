@@ -6,7 +6,7 @@ async function page() {
   const user = await currentUser();
 
   return (
-    <div className="bg-zinc-900 text-white">
+    <div className="bg-light-500 rounded text-textColour">
       {/* Hero Section */}
       <section className="h-screen flex items-center justify-center p-6">
         <div className="text-center px-4 max-w-2xl">
@@ -33,7 +33,7 @@ async function page() {
               alt="Workout illustration"
               height={300}
               width={300}
-              className="mx-auto rounded-lg shadow-lg object-cover"
+              className="mx-auto rounded shadow-lg object-cover"
               priority
             />
           </div>

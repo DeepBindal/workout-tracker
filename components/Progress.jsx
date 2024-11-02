@@ -26,12 +26,17 @@ export default function Progress({ data }) {
 
   // Function to calculate the average weight per session
   const calculateAverageWeight = (exercise) => {
-    return exercise.sets.map((set) => set.weight).reduce((a, b) => a + b, 0) / exercise.sets.length;
+    return (
+      exercise.sets.map((set) => set.weight).reduce((a, b) => a + b, 0) /
+      exercise.sets.length
+    );
   };
 
   const handleAction = () => {
     const regex = new RegExp(prompt, "i");
-    const filteredExercises = data.filter((item) => regex.test(item.exerciseName));
+    const filteredExercises = data.filter((item) =>
+      regex.test(item.exerciseName)
+    );
 
     // Add a new field `averageWeight` to each exercise
     const exercisesWithAverages = filteredExercises.map((exercise) => ({
@@ -44,7 +49,7 @@ export default function Progress({ data }) {
 
   return (
     <>
-    <h1 className="text-4xl font-semibold">Track your progress</h1>
+      <h1 className="text-4xl font-semibold">Track your progress</h1>
       <Input
         type="text"
         placeholder="Type an exercise you want to see progress in. Eg: Lat pulldowns"
@@ -56,15 +61,19 @@ export default function Progress({ data }) {
       </Button>
 
       {exercises && exercises.length > 0 ? (
-        <Card className="max-w-3xl mx-auto p-6 shadow-lg rounded-lg"> {/* Increased max width */}
+        <Card className="max-w-3xl mx-auto p-6 text-textColour bg-light-500 ">
           <CardHeader className="text-center mb-4">
-            <CardTitle className="text-xl font-semibold">{prompt.toUpperCase() || "Exercise Progress"}</CardTitle>
-            <CardDescription className="text-sm text-gray-600">
+            <CardTitle className="text-xl font-semibold">
+              {prompt.toUpperCase() || "Exercise Progress"}
+            </CardTitle>
+            <CardDescription className="text-sm ">
               Average weight lifted across sessions:
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
-            <ResponsiveContainer width="100%" height={450}> {/* Increased height */}
+            <ResponsiveContainer width="100%" height={450}>
+              {" "}
+              {/* Increased height */}
               <LineChart
                 data={exercises.map((exercise, index) => ({
                   session: `Session ${index + 1}`, // Label sessions
@@ -73,8 +82,8 @@ export default function Progress({ data }) {
                 margin={{ top: 20, right: 30, left: 0, bottom: 20 }} // Add padding
               >
                 {/* Add clearer grid lines */}
-                <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                
+                <CartesianGrid strokeDasharray="3 3" stroke="#000" />
+
                 {/* X Axis styling */}
                 <XAxis
                   dataKey="session"
@@ -99,14 +108,18 @@ export default function Progress({ data }) {
                     fontSize: 16, // Larger label
                   }}
                 />
-                
+
                 {/* Tooltip styling */}
                 <Tooltip
-                  contentStyle={{ backgroundColor: "#333", borderRadius: "8px", color: "#fff" }}
-                  labelStyle={{ color: "#fff", fontSize: 14 }} // Larger label in tooltip
+                  contentStyle={{
+                    backgroundColor: "#333",
+                    borderRadius: "8px",
+                    color: "#fff",
+                  }}
+                  labelStyle={{ color: "#000", fontSize: 14 }} // Larger label in tooltip
                   cursor={{ stroke: "#888", strokeWidth: 1 }}
                 />
-                
+
                 {/* Legend styling */}
                 <Legend
                   wrapperStyle={{ top: 0 }}
@@ -114,9 +127,11 @@ export default function Progress({ data }) {
                   align="center"
                   iconType="circle"
                   iconSize={12} // Larger icon
-                  formatter={(value) => <span className="text-sm font-medium">{value}</span>} // Larger legend text
+                  formatter={(value) => (
+                    <span className="text-sm font-medium">{value}</span>
+                  )} // Larger legend text
                 />
-                
+
                 {/* Line styling */}
                 <Line
                   type="monotone"
@@ -132,7 +147,9 @@ export default function Progress({ data }) {
           </CardContent>
         </Card>
       ) : (
-        <p className="text-xl font-bold mt-4 text-center">No exercises found for your search.</p>
+        <p className="text-xl font-bold mt-4 text-center">
+          No exercises found for your search.
+        </p>
       )}
     </>
   );

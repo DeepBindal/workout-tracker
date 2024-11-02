@@ -5,31 +5,19 @@
 
 @layer components {
   /* main */
-  .bottombar {
-    @apply fixed bottom-0 z-10 w-full rounded-t-3xl  p-4 backdrop-blur-lg sm:px-7 md:hidden;
-  }
-
-  .bottombar_container {
-    @apply flex items-center justify-between gap-3 sm:gap-5;
-  }
-
-  .bottombar_link {
-    @apply relative flex flex-col items-center gap-2 rounded-lg p-2 sm:flex-1 sm:px-2 sm:py-2.5;
-  }
-
   .leftsidebar {
-    @apply sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-zinc-900 bg-zinc-950 pb-5 pt-14 max-md:hidden;
+    @apply sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto border-r border-r-light-500 bg-secondary-500 pb-5 pt-14 max-md:hidden;
   }
 
   .leftsidebar_link {
     @apply relative flex justify-start gap-4 rounded-lg p-4;
   }
   .searchbar {
-    @apply flex gap-1 rounded-lg bg-zinc-800 px-4 py-2 rounded-xl;
+    @apply flex gap-1 bg-light-500 px-4 py-2 rounded-xl;
   }
 
   .searchbar_input {
-    @apply border-none bg-zinc-800  text-white outline-none !important;
+    @apply border-none bg-light-500  text-textColour outline-none !important;
   }
 }
 @layer utilities {
@@ -61,5 +49,5 @@
   @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
 } 
 .tab{
-  @apply bg-zinc-900 text-white data-[state=active]:bg-[#0e0e12] data-[state=active]:text-white !important;
+  @apply bg-zinc-900 text-white data-[state=active]:bg-secondary-500  data-[state=active]:text-textColour !important;
 }

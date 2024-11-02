@@ -95,7 +95,7 @@ function AiAssist() {
   };
 
   return (
-    <div className="p-6 shadow-lg rounded-lg w-full mx-auto">
+    <div className="p-6 bg-tertiary-500 shadow-lg rounded w-full mx-auto">
       <h1 className="text-3xl font-semibold mb-4">
         Design your workout with AI
       </h1>
@@ -103,7 +103,7 @@ function AiAssist() {
         type="text"
         placeholder="Eg: give me a push workout."
         onChange={(e) => setPrompt(e.target.value)}
-        className="border-gray-300 my-4 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
+        className="border-gray-300 text-textColour my-4 focus:ring-blue-500 focus:border-blue-500 rounded-xl"
       />
 
       <Button
@@ -115,7 +115,7 @@ function AiAssist() {
         Submit
       </Button>
 
-      <div className="bg-zinc-900 p-4 mt-4 rounded-xl">
+      <div className="bg-light-500 p-4 mt-4 rounded-xl">
         {loading && (
           <Image
             src="/assets/spinner.svg"

@@ -13,7 +13,7 @@ import MobileNav from "./MobileNav";
 
 async function Navbar() {
   return (
-    <nav className="bg-zinc-900 text-white py-4 sm:py-6 sm:px-8 px-6 shadow-lg">
+    <nav className="bg-secondary-500 text-white py-4 sm:py-6 sm:px-8 px-6 shadow-lg">
       <div className="container mx-auto max-w-7xl flex items-center justify-between">
         {/* Logo / Brand Name */}
         <Link className="flex gap-3 items-center hover:opacity-80 transition-opacity duration-200" href="/">

@@ -20,7 +20,7 @@ const Sidebar = () => {
             pathname === link.route;
             if(link.route === "/workouts") link.route = `${link.route}/${userId}`
           return (
-            <Link href={link.route} key={link.label} className={`leftsidebar_link ${isActive && ("bg-zinc-800 rounded")}`}>
+            <Link href={link.route} key={link.label} className={`leftsidebar_link ${isActive && ("bg-light-500 rounded")}`}>
               <Image
                 src={link.imgURL}
                 alt="link image"

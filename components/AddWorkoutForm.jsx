@@ -292,8 +292,8 @@ function AddWorkoutForm({ userId }) {
           <Button
             type="button"
             onClick={addExercise}
-            className="rounded"
-            variant="secondary"
+            className="rounded-full bg-secondary-500 hover:bg-tertiary-500"
+            // variant="secondary"
           >
             Add Exercise
           </Button>
@@ -321,7 +321,7 @@ function AddWorkoutForm({ userId }) {
           <Button
             type="submit"
             disabled={loading}
-            className="rounded"
+            className="text-white rounded-full bg-secondary-500 hover:bg-tertiary-500"
             variant="outline"
           >
             Submit Workout
